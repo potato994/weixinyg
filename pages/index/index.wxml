@@ -1,2 +1,20 @@
 <searchInput></searchInput>
 
+<!-- 轮播图 开始 -->
+<view class="index-swiper">
+    <swiper indicator-dots autoplay circular>
+        <swiper-item 
+        wx:for="{{SwiperList}}"
+        wx:key="{{goods_id}}"
+        >
+            <navigator >
+                <image  mode="widthFix" src="{{item.image_src}}"/>
+            </navigator>
+        </swiper-item>
+          
+    </swiper>
+</view>
+<!-- 轮播图 结束 -->
+
+<!--  -->
+
