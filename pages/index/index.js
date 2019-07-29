@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    SwiperList: []
+    SwiperList: [],
+    catitems:[]
   },
 
   /**
@@ -13,6 +14,7 @@ Page({
    */
   onLoad() {
     this.getAllSwiperList()
+    this.getAllcatitems()
   },
   getAllSwiperList() {
     wx.request({
@@ -26,6 +28,20 @@ Page({
 
     });
 
+  },
+  getAllcatitems(){
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
+      
+      success: (result) => {
+        // console.log(result);
+        this.setData({
+          catitems:result.data.message
+        })
+      },
+   
+    });
+      
   }
 
 })

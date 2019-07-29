@@ -1,3 +1,10 @@
 .index-swiper swiper {
   height: 340rpx;
 }
+.index-cateItem {
+  display: flex;
+}
+.index-cateItem navigator {
+  flex: 1;
+  padding: 30rpx;
+}

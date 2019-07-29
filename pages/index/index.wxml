@@ -16,5 +16,16 @@
 </view>
 <!-- 轮播图 结束 -->
 
-<!--  -->
+<!-- 分类导航 开始 -->
+<view class="index-cateItem">
+  <navigator 
+  wx:for="{{catitems}}"
+  wx:key="name"
+  >
+      <image mode="widthFix" src="{{item.image_src}}"/>
+  </navigator>  
+</view>
+<!-- 分类导航 结束 -->
+
+
 
