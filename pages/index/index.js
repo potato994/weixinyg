@@ -1,4 +1,5 @@
-// ./pages/index/index.js
+
+import { request } from "../../request/index"
 Page({
 
   /**
@@ -6,8 +7,8 @@ Page({
    */
   data: {
     SwiperList: [],
-    catitems:[],
-    floorList:[]
+    catitems: [],
+    floorList: []
   },
 
   /**
@@ -19,43 +20,34 @@ Page({
     this.getAllFloorList()
   },
   getAllSwiperList() {
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
-      success: (result) => {
-        console.log(result);
-        this.setData({
-          SwiperList: result.data.message
-        })
-      },
-
-    });
+    request({
+      url: "/home/swiperdata"
+    }).then(res => {
+      this.setData({
+        SwiperList: res
+      })
+    })
 
   },
-  getAllcatitems(){
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
-      
-      success: (result) => {
-        // console.log(result);
-        this.setData({
-          catitems:result.data.message
-        })
-      },
-   
-    });
-      
+  getAllcatitems() {
+    request({
+      url: "/home/catitems"
+    }).then(res => {
+      this.setData({
+        catitem: res
+      })
+    })
+
   },
-  getAllFloorList(){
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
-      success: (result) => {
-        console.log(result);
-        this.setData({
-          floorList:result.data.message
-        })
-      },
-    });
-      
+  getAllFloorList() {
+    request({
+      url: "/home/floordata"
+    }).then(res => {
+      this.setData({
+        floorList: res
+      })
+    })
+
   }
 
 })
