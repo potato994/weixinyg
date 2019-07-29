@@ -8,3 +8,33 @@
   flex: 1;
   padding: 30rpx;
 }
+.index-floor .floor-item .floor-title {
+  padding: 10rpx 0;
+}
+.index-floor .floor-item .floor-productList {
+  padding: 0 10rpx;
+  overflow: hidden;
+}
+.index-floor .floor-item .floor-productList .goods_item {
+  width: 33.33%;
+  float: left;
+  /**
+                原图的宽度 / 原图的高度 = 变化后的图片的宽度 / 变化后的高度
+                232 / 386 = （750rpx / 3） / 要计算的高度？？
+                小图的高度  height = （750rpx / 3） * 386 / 232 / 2（第一张图是后面的高度的2倍）
+
+
+                第一张图片的mode 属性 widthFix
+                后四张图片的mode 属性 scaleToFill 不管宽高比例，把图片内容拉伸至相框
+                **/
+}
+.index-floor .floor-item .floor-productList .goods_item:nth-last-child(-n+4) {
+  height: 207.97413793rpx;
+  border-left: 10rpx solid #fff;
+}
+.index-floor .floor-item .floor-productList .goods_item:nth-last-child(-n+4) image {
+  height: 100%;
+}
+.index-floor .floor-item .floor-productList .goods_item:nth-last-child(-n+2) {
+  border-top: 10rpx solid #fff;
+}
