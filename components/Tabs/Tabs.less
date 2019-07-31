@@ -1,0 +1,23 @@
+.tabs {
+    .tabs_title {
+        display: flex;
+        .title_item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20rpx 0;
+            color: #000;
+            font-size: 30rpx;
+            flex: 1;
+        }
+    }
+.acitve{
+    color: var(--themeColor);
+    border-bottom: 5rpx solid #eb4450;
+    
+}
+
+    .tabs_content {
+        slot {}
+    }
+}

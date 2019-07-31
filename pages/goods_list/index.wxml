@@ -1,2 +1,8 @@
-<!--./pages/goods_list/index.wxml-->
-<text>./pages/goods_list/index.wxml</text>
+<searchInput></searchInput>
+<!-- 父向子传递数据 -->
+<Tabs bindtitleChange="handleTitleChange" tabs="{{tabs}}">
+<block wx:if="{{tabs[0].isActive}}">0 </block>
+<block wx:elif="{{tabs[1].isActive}}">1敬请期待 </block>
+<block wx:elif="{{tabs[2].isActive}}">2敬请期待 </block>
+  
+</Tabs>
