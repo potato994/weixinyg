@@ -1,6 +1,6 @@
 .cate-container {
   display: flex;
-  height: calc(100vh-90rpx);
+  height: calc(100vh - 90rpx);
   padding: 5rpx 0;
 }
 .cate-container .left-menu {

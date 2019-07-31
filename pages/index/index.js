@@ -33,8 +33,9 @@ Page({
     request({
       url: "/home/catitems"
     }).then(res => {
+      console.log(res)
       this.setData({
-        catitem: res
+        catitems: res
       })
     })
 

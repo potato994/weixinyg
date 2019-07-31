@@ -6,14 +6,15 @@
         <view class="menu-item {{currentIndex===index?'active':''}}"
         wx:for="{{LeftMenuList}}"
         wx:key="cat_id"
+        bindtap="handleChangeMenu"
+        data-index='{{index}}'
         >
-        {{item.cat_name}}
+        {{item.cat_name}}  
         </view>
     </scroll-view>
 
     <!-- 右侧商品列表 -->
-
-    <scroll-view scroll-y class="right-content">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right-content">
         <view class="goods-group"
         wx:for="{{RightGoodsList}}"
         wx:key="cat_id"
