@@ -1,4 +1,6 @@
 import { request } from '../../request/index'
+import regeneratorRuntime from '../../lib/runtime/runtime';
+
 Page({
 
   /**
@@ -40,11 +42,23 @@ Page({
 },
 
   // 获取所有分类数据
-  getAllLeftList(){
-    request({
-      url:"/categories"
-    }).then(res => {
-        this.Cates = res
+ async getAllLeftList(){
+    // request({
+    //   url:"/categories"
+    // }).then(res => {
+    //     this.Cates = res
+    //     wx.setStorageSync("cates", {time:Date.now(),data:this.Cates});
+          
+    //     let LeftMenuList = this.Cates.map((v, i) => ({ cat_name: v.cat_name, cat_id: v.cat_id }))
+
+    //     let RightGoodsList = this.Cates[0].children
+    //     this.setData({
+    //       LeftMenuList,
+    //       RightGoodsList
+    //     })
+    //   })
+    const res = await request({url:'/categories'})
+    this.Cates = res
         wx.setStorageSync("cates", {time:Date.now(),data:this.Cates});
           
         let LeftMenuList = this.Cates.map((v, i) => ({ cat_name: v.cat_name, cat_id: v.cat_id }))
@@ -54,7 +68,6 @@ Page({
           LeftMenuList,
           RightGoodsList
         })
-      })
   },
 
   // 左侧菜单点击事件

@@ -3,5 +3,6 @@
     "searchInput":"../../components/searchInput/searchInput",
     "Tabs":"../../components/Tabs/Tabs"
   },
-  "navigationBarTitleText": "商品列表页面"
+  "navigationBarTitleText": "商品列表页面",
+  "enablePullDownRefresh":true
 }
