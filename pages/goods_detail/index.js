@@ -27,6 +27,17 @@ Page({
         pics: res.pics
       }
     })
+  },
+
+  // 点击图片放大
+  handlePreviewImage(e){
+    const {index} = e.currentTarget.dataset
+    const urls = this.data.GoodsObj.pics.map(v=> v.pics_big )
+    const current = urls[index];
+    wx.previewImage({
+      current,
+      urls
+    })
   }
 
 })
