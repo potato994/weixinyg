@@ -73,13 +73,11 @@ Page({
     // 先判断有没有下一页数据
     if (this.QueryParams.pagenum >= this.TotalPage) {
       // 没有下一页数据
-      // console.log("没有下一页数据");
       wx.showToast({
         title: "已加载完成"
       })
     } else {
       // 还有下一页数据
-      // console.log("还有下一页数据");
       this.QueryParams.pagenum++
       this.getAllGoodsList()
     }

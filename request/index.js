@@ -7,7 +7,6 @@ export const request = (params)=>{
         title: "加载中...",
     });
     ajaxTime++;
-    console.log("发送出去的异步的格式"+ajaxTime);
     const baseURL = "https://api.zbztb.cn/api/public/v1"
     return new Promise((reslove,reject)=>{
         wx.request({
@@ -22,7 +21,6 @@ export const request = (params)=>{
             complete:()=>{
                 ajaxTime--;
                 if(ajaxTime===0){
-                    console.log("请求都回来了");
                     wx.hideLoading()
                 }
             }

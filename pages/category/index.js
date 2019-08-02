@@ -1,4 +1,5 @@
 import { request } from '../../request/index'
+import {getStorageCates,setStorageCates} from "../../utils/stotage.js"
 import regeneratorRuntime from '../../lib/runtime/runtime';
 
 Page({
@@ -17,7 +18,7 @@ Page({
 
   onLoad() {
     // this.getAllLeftList()
-    let cates = wx.getStorageSync("cates");
+    let cates = getStorageCates();
     if (!cates) {
       // 没有数据
       this.getAllLeftList()
@@ -59,7 +60,7 @@ Page({
     //   })
     const res = await request({url:'/categories'})
     this.Cates = res
-        wx.setStorageSync("cates", {time:Date.now(),data:this.Cates});
+    setStorageCates( {time:Date.now(),data:this.Cates});
           
         let LeftMenuList = this.Cates.map((v, i) => ({ cat_name: v.cat_name, cat_id: v.cat_id }))
 
