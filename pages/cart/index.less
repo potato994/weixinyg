@@ -1,3 +1,6 @@
+page{
+    padding-bottom: 90rpx;
+}
 .revice_wrap {
     .revice_btn_row {
         padding: 20rpx 0;
@@ -33,6 +36,7 @@
     }
 
     .cart-list {
+       .cart-item{
         display: flex;
         padding: 10rpx;
         text-align: center;
@@ -100,5 +104,49 @@
                 }
             }
         }
+       }
+    }
+}
+
+.foot-tool{
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90rpx;
+    background-color: #fff;
+    border-top: 1rpx solid #cccccc;
+    color: #000;
+    .tool-chk-wrap{
+        flex: 2;
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+    }
+    .total-price{
+        flex: 4;
+        text-align: right;
+        font-size: 36rpx;
+        padding: 0rpx 12rpx;
+        .total-wrap{
+            .price{
+                color: var(--themeColor);
+                font-weight: 600;
+            }
+        }
+        .freight{
+            font-size: 30rpx;
+        }
+    }
+    .btn-pay{
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #eb4450;
+        font-size: 38rpx;
+        color: #fff;
     }
 }
