@@ -86,6 +86,12 @@ page {
   justify-content: center;
   margin: 0 5rpx;
 }
+.cart-main .cart-list .empty_cart {
+  text-align: center;
+}
+.cart-main .cart-list .empty_cart image {
+  width: 50%;
+}
 .foot-tool {
   display: flex;
   justify-content: space-around;

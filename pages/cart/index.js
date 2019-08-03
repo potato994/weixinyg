@@ -11,6 +11,7 @@ Page({
     isAllChecked: false,
     totalNum: 0,
     totalPrice: 0,
+    hascart: false
   },
   // 获取收货地址
   async handleChooseAddress() {
@@ -27,7 +28,6 @@ Page({
       await openSetting()
       // 获取收货地址
       // const res2 = await chooseAddress()
-      // console.log(res2);
     }
 
     const address = await chooseAddress();
@@ -57,7 +57,7 @@ Page({
     let cartArr = Object.values(cart)
     // 计算是否都选中了  
     // every 会接收一个回调函数，当没有循环项都返回true的时候，cartArr.every的返回值才会是 true
-    let isAllChecked = cartArr.every(v => v.checked)
+    let isAllChecked = cartArr.length ? cartArr.every(v => v.checked) : false;
     // 计算总价格   只计算勾选了的价格
     let totalPrice = 0;
     let totalNum = 0;
@@ -67,8 +67,9 @@ Page({
         totalNum += v.num
       }
     })
-
-    this.setData({ cart, totalPrice, totalNum, isAllChecked })
+    // 购物车是否有数据
+    let hascart = cartArr.length > 0 ? true : false;
+    this.setData({ cart, totalPrice, totalNum, isAllChecked,hascart })
     // 防止数据改变了 刷新之后没有效果 所有也顺便存入缓存中
     wx.setStorageSync("cart", cart);
 
@@ -102,18 +103,44 @@ Page({
   // 购物车数量的编辑功能
   async  handleCartNumEdit(e) {
     console.log(e);
-    const {id,opration} = e.currentTarget.dataset;
+    const { id, opration } = e.currentTarget.dataset;
     // 获取data中的购物车对象
-    const {cart} = this.data;
-    if(opration===-1 && cart[id].num===1){
-      const res = await showModal({content:"您确定是要删除吗？"})
-      if(res.confirm){
+    const { cart } = this.data;
+    if (opration === -1 && cart[id].num === 1) {
+      const res = await showModal({ content: "您确定是要删除吗？" })
+      if (res.confirm) {
         delete cart[id]
         this.setCart(cart)
       }
-    }else{
+    } else {
       cart[id].num += opration
       this.setCart(cart)
+    }
+  },
+  // 点击结算按钮
+  handlePay() {
+    let { cart, address } = this.data;
+    let cartArr = Object.values(cart)
+    // 只要购物车有一个商品被勾选了  这个变量的值 就应该为true
+    let hasCheckedCart = cartArr.some(v => v.checked)
+
+    if (!address.userName) {
+      wx.showToast({
+        title: '您还没有选择收货地址',
+        mask: true,
+        icon: "none"
+      });
+    }else if(!hasCheckedCart){
+      wx.showToast({
+        title: '您还没有添加商品',
+        mask: true,
+        icon: "none"
+      });
+    }else{
+      wx.navigateTo({
+        url: '/pages/pay/index',
+      });
+        
     }
   }
 })
