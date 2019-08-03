@@ -1,9 +1,8 @@
 // ./pages/cart/index.js
 import regeneratorRuntime, { async } from '../../lib/runtime/runtime';
 
-import { getSetting, chooseAddress, openSetting } from "../../utils/asyncWx.js"
+import { getSetting, chooseAddress, openSetting, showModal } from "../../utils/asyncWx.js"
 
-import { setStorageCart, getStorageCart } from "../../utils/stotage"
 Page({
 
   data: {
@@ -67,13 +66,54 @@ Page({
         totalPrice += v.num * v.goods_price;
         totalNum += v.num
       }
-      console.log(totalPrice,totalNum);
     })
 
-    this.setData({cart,totalPrice,totalNum,isAllChecked})
+    this.setData({ cart, totalPrice, totalNum, isAllChecked })
     // 防止数据改变了 刷新之后没有效果 所有也顺便存入缓存中
     wx.setStorageSync("cart", cart);
-      
-  }
 
+  },
+  // 购物车选中切换
+  handleCartCheck(e) {
+    // console.log(e);
+    // 获取要操作数据的id
+    const { id } = e.currentTarget.dataset;
+    const { cart } = this.data
+    // 把购物车商品的选中状态进行取反
+    cart[id].checked = !cart[id].checked;
+    // 重新把cart的值填充到data缓存中
+    this.setCart(cart)
+
+  },
+  // 购物车全选框
+  handleAllCheck(e) {
+    // console.log(e);
+    let { cart, isAllChecked } = this.data;
+    isAllChecked = !isAllChecked;
+    for (const key in cart) {
+      // 对象有些属性是自己 有些是原型链上的
+      // 当属性是自身的  就可以继续执行
+      if (cart.hasOwnProperty(key)) {
+        cart[key].checked = isAllChecked;
+      }
+    }
+    this.setCart(cart)
+  },
+  // 购物车数量的编辑功能
+  async  handleCartNumEdit(e) {
+    console.log(e);
+    const {id,opration} = e.currentTarget.dataset;
+    // 获取data中的购物车对象
+    const {cart} = this.data;
+    if(opration===-1 && cart[id].num===1){
+      const res = await showModal({content:"您确定是要删除吗？"})
+      if(res.confirm){
+        delete cart[id]
+        this.setCart(cart)
+      }
+    }else{
+      cart[id].num += opration
+      this.setCart(cart)
+    }
+  }
 })

@@ -67,11 +67,11 @@ page {
   font-size: 32rpx;
   font-weight: 600;
 }
-.cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-edit {
+.cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-wrap {
   display: flex;
   padding: 0 10rpx;
 }
-.cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-edit .cart-num-edit {
+.cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-wrap .cart-num-edit {
   width: 50rpx;
   height: 50rpx;
   border: 2rpx solid #dbdbdb;
@@ -79,7 +79,7 @@ page {
   justify-content: center;
   align-items: center;
 }
-.cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-edit .cart-num {
+.cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-wrap .cart-num {
   width: 50rpx;
   height: 50rpx;
   display: flex;

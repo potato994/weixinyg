@@ -1,12 +1,12 @@
 // promise 的 wx.getSetting
 
-export const getSetting =()=>{
-    return new Promise((resolve,reject)=>{
+export const getSetting = () => {
+    return new Promise((resolve, reject) => {
         wx.getSetting({
-            success:(result)=>{
+            success: (result) => {
                 resolve(result)
             },
-            fail:(err)=>{
+            fail: (err) => {
                 reject(err)
             }
         })
@@ -14,13 +14,13 @@ export const getSetting =()=>{
 }
 
 // promise 的 wx.chooseAddress
-export const chooseAddress =()=>{
-    return new Promise((resolve,reject)=>{
+export const chooseAddress = () => {
+    return new Promise((resolve, reject) => {
         wx.chooseAddress({
-            success:(result)=>{
+            success: (result) => {
                 resolve(result)
             },
-            fail:(err)=>{
+            fail: (err) => {
                 reject(err)
             }
         })
@@ -28,15 +28,30 @@ export const chooseAddress =()=>{
 }
 
 // promise 的 wx.openSetting
-export const openSetting =()=>{
-    return new Promise((resolve,reject)=>{
+export const openSetting = () => {
+    return new Promise((resolve, reject) => {
         wx.openSetting({
-            success:(result)=>{
+            success: (result) => {
                 resolve(result)
             },
-            fail:(err)=>{
+            fail: (err) => {
                 reject(err)
             }
+        })
+    })
+}
+
+// 确认框
+
+export const showModal = ({ content }) => {
+    return new Promise((resolve, reject) => {
+        wx.showModal({
+            title: "提示",
+            content: content,
+            success: (result) => {
+                resolve(result)
+            }
+
         })
     })
 }
