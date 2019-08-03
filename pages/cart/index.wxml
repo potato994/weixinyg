@@ -1,14 +1,42 @@
 <view class="revice_wrap">
     <view class="revice_btn_row" wx:if="{{!address.userName}}">
-        <button type="primary" plain bindtap="handleChooseAddress"> 获取收货地址</button>
+        <button type="primary" plain bindtap="handleChooseAddress">获取收货地址</button>
     </view>
-
-    <view class="revice_address" wx:else >
+    <view class="revice_address" wx:else>
         <view class="userInfo">
             <view class="username">收货人：{{address.userName}}</view>
             <view class="address">{{address.all}}</view>
         </view>
         <view class="telNumber">{{address.telNumber}}</view>
     </view>
-
+</view>
+<!-- 购物车 -->
+<view class="cart-main">
+    <view class="cart-title">购物车</view>
+    <view class="cart-list">
+        <!-- 复选框 -->
+        <view class="cart-chk-wrap">
+            <checkbox-group bindchange="">
+                <checkbox  color="red"> </checkbox>
+            </checkbox-group>
+        </view>
+        <!-- 图片 -->
+        <view class="cart-img-wrap">
+            <image mode="widthFix" src="http://image5.suning.cn/uimg/b2c/newcatentries/0070163158-000000000625502638_1_400x400.jpg" />
+        </view>
+        <!-- 商品描述 -->
+        <view class="cart-info-wrap">
+            <view class="info-detail">冷暖两用加热保温箱ELKS 8L车载迷你冷暖两用小冰箱小型家用制冷微型学生宿舍车家两用加热保暖保温箱</view>
+            <view class="goods-price-wrap">
+                <view class="goods-price">￥9999</view>
+                <view class="cart-num-edit">
+                    <text class="cart-num-edit">-</text>
+                    <text class="cart-num">6
+                        
+                    </text>
+                    <text class="cart-num-edit">+</text>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>

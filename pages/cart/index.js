@@ -1,11 +1,14 @@
 // ./pages/cart/index.js
-import regeneratorRuntime from '../../lib/runtime/runtime';
+import regeneratorRuntime, { async } from '../../lib/runtime/runtime';
 
 import { getSetting, chooseAddress, openSetting } from "../../utils/asyncWx.js"
+
+import {setStorageCart,getStorageCart} from "../../utils/stotage"
 Page({
 
   data:{
-    address:{}
+    address:{},
+    cart:{}
   },
   // 获取收货地址
   async handleChooseAddress() {
@@ -43,6 +46,8 @@ Page({
       address
     })
       
-  }
+  },
+  
+  // async getStorageCart()
 
 })

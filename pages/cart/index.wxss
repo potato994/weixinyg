@@ -17,3 +17,69 @@
 .revice_address .telNumber {
   flex: 2;
 }
+.cart-main .cart-title {
+  color: #000;
+  font-size: 42rpx;
+  border-bottom: 2rpx solid var(--themeColor);
+  padding: 20rpx;
+}
+.cart-main .cart-list {
+  display: flex;
+  padding: 10rpx;
+  text-align: center;
+  border: 2rpx solid #ccc;
+}
+.cart-main .cart-list .cart-chk-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-main .cart-list .cart-img-wrap {
+  flex: 3;
+}
+.cart-main .cart-list .cart-img-wrap image {
+  width: 80%;
+}
+.cart-main .cart-list .cart-info-wrap {
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cart-main .cart-list .cart-info-wrap .info-detail {
+  font-size: 28rpx;
+  color: #000;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.cart-main .cart-list .cart-info-wrap .goods-price-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-main .cart-list .cart-info-wrap .goods-price-wrap .goods-price {
+  color: var(--themeColor);
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.cart-main .cart-list .cart-info-wrap .goods-price-wrap .cart-num-edit {
+  display: flex;
+  padding: 0 10rpx;
+}
+.cart-main .cart-list .cart-info-wrap .goods-price-wrap .cart-num-edit .cart-num-edit {
+  width: 50rpx;
+  height: 50rpx;
+  border: 2rpx solid #dbdbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-main .cart-list .cart-info-wrap .goods-price-wrap .cart-num-edit .cart-num {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  margin: 0 5rpx;
+}

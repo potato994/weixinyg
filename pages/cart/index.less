@@ -1,22 +1,104 @@
-.revice_wrap{
-    .revice_btn_row{
+.revice_wrap {
+    .revice_btn_row {
         padding: 20rpx 0;
-        button{
+
+        button {
             width: 60%;
         }
     }
 }
 
-.revice_address{
-    padding:20rpx 10rpx;
+.revice_address {
+    padding: 20rpx 10rpx;
     font-size: 28rpx;
     color: #000;
     display: flex;
     border-bottom: 1rpx solid var(--themeColor);
-    .userInfo{
+
+    .userInfo {
         flex: 4
     }
-    .telNumber{
+
+    .telNumber {
         flex: 2;
+    }
+}
+
+.cart-main {
+    .cart-title {
+        color: #000;
+        font-size: 42rpx;
+        border-bottom: 2rpx solid var(--themeColor);
+        padding: 20rpx;
+    }
+
+    .cart-list {
+        display: flex;
+        padding: 10rpx;
+        text-align: center;
+        border: 2rpx solid #ccc;
+
+        .cart-chk-wrap {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-img-wrap {
+            flex: 3;
+
+            image {
+                width: 80%;
+            }
+        }
+
+        .cart-info-wrap {
+            display: flex;
+            flex: 5;
+            flex-direction: column;
+            justify-content: space-around;
+            .info-detail {
+                font-size: 28rpx;
+                color: #000;
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+            }
+
+            .goods-price-wrap {
+                display: flex;
+                justify-content: space-between;
+                .goods-price {
+                    // flex: 1;
+                    color: var(--themeColor);
+                    font-size: 32rpx;
+                    font-weight: 600;
+                }
+
+                .cart-num-edit {
+                    // flex: 1;
+                    display: flex;
+                    padding: 0 10rpx;
+                    .cart-num-edit {
+                        width: 50rpx;
+                        height: 50rpx;
+                        border: 2rpx solid #dbdbdb;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .cart-num {
+                        width: 50rpx;
+                        height: 50rpx;
+                        display: flex;
+                        justify-content: center;
+                        margin: 0 5rpx;
+                    }
+                }
+            }
+        }
     }
 }
