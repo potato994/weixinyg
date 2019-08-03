@@ -1,6 +1,14 @@
 <view class="revice_wrap">
-    <view class="revice_btn_row">
+    <view class="revice_btn_row" wx:if="{{!address.userName}}">
         <button type="primary" plain bindtap="handleChooseAddress"> 获取收货地址</button>
+    </view>
+
+    <view class="revice_address" wx:else >
+        <view class="userInfo">
+            <view class="username">收货人：{{address.userName}}</view>
+            <view class="address">{{address.all}}</view>
+        </view>
+        <view class="telNumber">{{address.telNumber}}</view>
     </view>
 
 </view>

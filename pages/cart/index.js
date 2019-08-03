@@ -3,6 +3,10 @@ import regeneratorRuntime from '../../lib/runtime/runtime';
 
 import { getSetting, chooseAddress, openSetting } from "../../utils/asyncWx.js"
 Page({
+
+  data:{
+    address:{}
+  },
   // 获取收货地址
   async handleChooseAddress() {
     const res1 = await getSetting()
@@ -17,46 +21,28 @@ Page({
       // 诱导用户 打开授权页面
       await openSetting()
       // 获取收货地址
-      const res2 = await chooseAddress()
-      console.log(res2);
+      // const res2 = await chooseAddress()
+      // console.log(res2);
     }
 
+    const address = await chooseAddress();
+    console.log(address);
+    // 拼接完整的地址
 
-    // 获取用户对小程序的授权信息
-    // wx.getSetting({
-    //   success: (result1) => {
-    //     console.log(result1);
-
-    //     // 获取到了授权信息
-    //     const scopeAddress = result1.authSetting['scope.address']
-    //     // 用户授权过 或者 用户从来没有调用过收货地址
-    //     if (scopeAddress === true || scopeAddress === undefined) {
-    //       // 调用收货地址
-    //       wx.chooseAddress({
-    //         success: (result2) => {
-    //           console.log(result2);
-    //         },
-    //       });
-    //     } else {
-    //       // 用户 点击 拒绝收货地址  诱导用户 打开授权页面 再调用获取收货地址
-    //       wx.openSetting({
-    //         success: () => {
-    //           // 调用收货地址
-    //           wx.chooseAddress({
-    //             success: (result3) => {
-    //               console.log(result3);
-    //             },
-    //           });
-    //         },
-    //         fail: () => { },
-    //         complete: () => { }
-    //       });
-
-    //     }
-    //   },
-    //   fail: () => { },
-    //   complete: () => { }
-    // });
+    address.all = address.provinceName+address.cityName+address.countyName+address.detailInfo
+    // 把收货地址存到本地储存中
+   wx.setStorageSync("address",address);
+    
   },
+
+  // 页面切换显示的时候触发 onShow
+  onShow(){
+    const address = wx.getStorageSync("address") || {};
+    // 把address存入到data中
+    this.setData({
+      address
+    })
+      
+  }
 
 })

@@ -4,3 +4,16 @@
 .revice_wrap .revice_btn_row button {
   width: 60%;
 }
+.revice_address {
+  padding: 20rpx 10rpx;
+  font-size: 28rpx;
+  color: #000;
+  display: flex;
+  border-bottom: 1rpx solid var(--themeColor);
+}
+.revice_address .userInfo {
+  flex: 4;
+}
+.revice_address .telNumber {
+  flex: 2;
+}
