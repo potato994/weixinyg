@@ -1,0 +1,83 @@
+page {
+    background-color: #edece8;
+}
+
+.img-bgc {
+    height: 45vh;
+    overflow: hidden;
+    position: relative;
+
+    .bgc-big {
+        height: 120%;
+        filter: blur(20rpx)
+    }
+
+    .userinfo {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translateX(-50%);
+
+        .user-avatar {
+            width: 160rpx;
+            height: 160rpx;
+            border-radius: 50%;
+        }
+
+        .username {
+            color: #fff;
+            padding-top: 60rpx;
+        }
+    }
+}
+
+.user-content {
+    position: relative;
+
+    .user-main {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -40rpx;
+        width: 90%;
+
+        .history-item {
+            display: flex;
+            background-color: #fff;
+            padding: 10rpx 0;
+
+            navigator {
+                flex: 1;
+                text-align: center;
+
+                .his-num {
+                    color: var(--themeColor);
+                }
+            }
+        }
+
+        .order-item {
+            margin-top: 20rpx;
+            background-color: #fff;
+
+            .order-title {
+                padding: 20rpx 12rpx;
+                border-bottom: 2rpx solid #dedede;
+            }
+
+            .order-content {
+                display: flex;
+
+                navigator {
+                    flex: 1;
+                    text-align: center;
+                    padding: 20rpx 0;
+                    .iconfont {
+                        font-size: 46rpx;
+                        color: var(--themeColor)
+                    }
+                }
+            }
+        }
+    }
+}

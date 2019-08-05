@@ -46,5 +46,18 @@ Page({
     wx.setStorageSync("cart", cart);
 
   },
-  
+  handleOederPay(){
+    const token = wx.getStorageSync("token")
+    // 判断是否存在
+    if(!token){
+      // 跳转到授权页面
+      wx.navigateTo({
+        url: '/pages/auth/index',
+       
+      });
+    }else{
+      // 有token值，直接写逻辑
+      console.log("有token值");
+    }
+  }
 })

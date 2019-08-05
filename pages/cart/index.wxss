@@ -77,7 +77,7 @@ page {
   border: 2rpx solid #dbdbdb;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 .cart-main .cart-list .cart-item .cart-info-wrap .goods-price-wrap .cart-num-wrap .cart-num {
   width: 50rpx;
